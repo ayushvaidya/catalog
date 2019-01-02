@@ -11,6 +11,7 @@ class PostsController < ApplicationController
         @posts = current_user.posts.where(category: @category).order(:position)
       else
         @posts = Post.order(:position)
+        @category = current_user.categories
       end
     end
 
