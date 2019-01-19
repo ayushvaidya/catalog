@@ -441,6 +441,7 @@ a:hover, a:focus {
   margin-right: 40px;
   margin-bottom: 40px;
   position: relative;
+  width: 100px;
 }
 
 .shortcut-image {
@@ -452,6 +453,7 @@ a:hover, a:focus {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #c5ccd2;
 
   .fa-plus {
     font-size: 32px;
@@ -459,13 +461,24 @@ a:hover, a:focus {
   }
 }
 
-.shortcut-title-box {
+.shortcut-image:hover {
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.10);
+  background: white;
+  color: #7572ff !important;
+}
 
+.shortcut-title-image {
+  font-size: 32px;
 }
 
 .shortcut-title {
   color: #657786;
   text-align: center;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .empty-post-box {

@@ -19,14 +19,15 @@
                 <div class="shortcut-card">
                   <a href="http://<%= post.link %>" target="_blank">
                     <div class="shortcut-image">
+                      <div class="shortcut-title-image">
+                        <%= post.title.first %>
+                      </div>
                     </div>
                   </a>
 
-                  <div class="shortcut-title-box">
-                    <%= link_to edit_post_path(post), class: 'shortcut-title' do %>
-                      <%= post.title %>
-                    <% end %>
-                  </div>
+                  <%= link_to edit_post_path(post), class: 'shortcut-title' do %>
+                    <%= post.title %>
+                  <% end %>
                 </div>
 
               <% end %>
