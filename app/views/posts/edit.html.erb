@@ -1,6 +1,51 @@
-<h1>Editing Post</h1>
+<div class="page-background">
+  <div class="form-container">
+    <div class="form-title">Edit Post</div>
 
-<%= render 'form', post: @post %>
+    <%= simple_form_for @post, html: { multipart: true } do |form| %>
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+          <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+
+      <div class="field">
+        <%= form.hidden_field :category_id, value: params[:category] %>
+      </div>
+
+
+
+      <div class="field">
+        <%= form.text_field :title,
+          class: "form-control",
+          placeholder: "Shortcut title",
+          required: true %>
+      </div>
+
+      <div class="field">
+        <%= form.text_field :link,
+          class: "form-control",
+          placeholder: "www.shortcut.com",
+          required: true %>
+      </div>
+
+      <div class="actions">
+        <%= form.button :submit, "Save changes", class: "form-button" %>
+      </div>
+    <% end %>
+
+    <div class="shared-links">
+      <%= link_to 'Delete shortcut', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-style' %>
+      <%= link_to 'Return home', root_path, class: 'link-style' %>
+
+    </div>
+
+  </div>
+</div>

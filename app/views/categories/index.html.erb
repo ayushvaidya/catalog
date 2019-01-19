@@ -1,28 +1,67 @@
 <div class="page-center">
   <div class="page-container">
 
-    <div class="posts-title">Your Boards</div>
+    <% if user_signed_in? %>
 
+      <% unless @categories.blank? %>
 
+        <% @categories.each do |category| %>
+          <div class="category-section">
+            <div class="category-info">
+              <div class="category-title"><%= category.name %></div>
+              <%= link_to edit_category_path(category) do %>
+                <i class="far fa-ellipsis-v"></i>
+              <% end %>
+            </div>
 
-    <% @categories.each do |category| %>
-        <%= link_to posts_path(category: category.name), class: "post-box" do %>
-          <div class="board-title">
-            <%= category.name %>
+            <div class="shortcut-box">
+              <% category.posts.each do |post| %>
+                <div class="shortcut-card">
+                  <a href="http://<%= post.link %>" target="_blank">
+                    <div class="shortcut-image">
+                    </div>
+                  </a>
+
+                  <div class="shortcut-title-box">
+                    <%= link_to edit_post_path(post), class: 'shortcut-title' do %>
+                      <%= post.title %>
+                    <% end %>
+                  </div>
+                </div>
+
+              <% end %>
+
+              <%= link_to new_post_path(@category, category: category.id) do %>
+                <div class="shortcut-card">
+                  <div class="shortcut-image">
+                    <i class="fal fa-plus"></i>
+                  </div>
+                  <div class="shortcut-title">
+                    New Shortcut
+                  </div>
+                </div>
+              <% end %>
+            </div>
           </div>
         <% end %>
 
-        <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% else %>
 
+          <div class="empty-post-box">
+            <div class="text">
+              You have no shortcut categories
+              <br>
+              Let’s create one
+              <br>
+              <%= link_to "Create Category", new_category_path, class: "category-button" %>
+            </div>
+          </div>
+      <% end %>
+
+    <% else %>
+
+      <%= render 'homepage' %>
     <% end %>
-
-
-    <br>
-
-    <%= link_to 'New Category', new_category_path %>
 
   </div>
 </div>

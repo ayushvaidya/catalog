@@ -17,25 +17,19 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-$primary-color: wheat;
-$primary-color-hover: #d2b885;
-$light-bg: #f5ead4;
-$light-bg-hover: wheat;
+$primary-color: #7677FC;
+$primary-color-hover: #6263EF;
+$light-bg: #F4F5FA;
+$light-bg-hover: #7677FC;
 $gray-text: #777;
-
-
-
-body {
-  background: #000;
-}
-
+$light-gray: #e6ecf0;
 
 /** Navbar **/
 
 .navbar {
   border-radius: 0px;
   box-shadow: 0 2px 16px 0 rgba(0,0,0,0.05);
-  background-color: #0e0e0e;
+  background-color: white;
   border-bottom: 0px;
   height: 60px;
   display: flex;
@@ -66,11 +60,15 @@ body {
 
     &:hover {
       background: $primary-color !important;
-      color: #000 !important;
+      color: white !important;
     }
   }
 }
 
+.nav > li {
+  display: flex;
+  align-items: center;
+}
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
   color: #999;
 }
@@ -87,7 +85,7 @@ body {
 }
 
 .dropdown-menu {
-  background: #0e0e0e;
+  background: white;
 }
 
 .dropdown-menu > li > a{
@@ -95,12 +93,11 @@ body {
 }
 
 .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-  background: #444;
-  color: white;
+  background: $light-gray;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-  background-color: #0e0e0e;
+  background-color: white;
 }
 
 .dropdown-menu .divider {
@@ -110,15 +107,20 @@ body {
 /** Alerts **/
 
 .alert-info {
-  position: absolute;
-  margin-top: 80px;
-  border-radius: 0px;
+  position: fixed;
+  bottom: 0;
   text-align: center;
   z-index: 100;
-  width: 100%;
-  background-color: #000;
+  background-color: white;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.05);
   color: $gray-text;
-  border: 0px;
+  border: 1px solid #efefef;
+  border-radius: 4px;
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
 }
 
 
@@ -164,146 +166,10 @@ a:hover, a:focus {
   width: 100%;
   height: 100%;
   position: absolute;
+  background-color: $light-bg;
 }
 
 /** Board Page **/
-
-.board-name {
-  font-size: 48px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  color: $primary-color;
-
-  a {
-    display: flex;
-    align-items: center;
-    margin-left: 16px;
-  }
-
-  .fal {
-    color: $gray-text;
-    font-size: 24px;
-    margin-top: 4px;
-
-    &:hover {
-      color: $primary-color;
-    }
-  }
-}
-
-.posts-header {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 64px;
-
-  .info {
-    text-align: left;
-  }
-}
-
-.post-box {
-  width: calc((100% / 3) - 8px);
-  padding-bottom: calc((100% / 3) - 8px);
-  background-color: #0e0e0e;
-  float: left;
-  margin-right: 8px;
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 8px;
-  position: relative;
-  cursor: pointer;
-
-  .board-title {
-    font-size: 48px;
-    font-weight: 600;
-    margin-left: 24px;
-    margin-bottom: 24px;
-    text-align: left;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    color: #0e0e0e;
-    text-shadow:
-     -1px -1px 0 $primary-color,
-      1px -1px 0 $primary-color,
-      -1px 1px 0 $primary-color,
-       1px 1px 0 $primary-color
-  }
-}
-
-.post-box-overlay {
-  background-color: rgba(0,0,0,0.3);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  display: none;
-}
-
-.board-box {
-  background-color: #0e0e0e;
-
-  &:hover {
-    background-color: #1f1f1f;
-  }
-}
-
-.board-box:hover .board-title {
-  color: #1f1f1f;
-}
-
-.post-destroy {
-  display: none;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  margin-bottom: 16px;
-  margin-right: 16px;
-  color: white;
-
-  &:hover {
-    background-color: white;
-    padding: 4px;
-    color: black;
-    margin-bottom: 12px;
-    margin-right: 12px;
-    border-radius: 4px;
-  }
-}
-
-.post-box:hover .post-destroy {
-  display: block;
-}
-
-.post-box:hover .post-box-overlay {
-  display: block;
-}
-
-.empty-post-box {
-  width: 100%;
-  height: 320px;
-  background-color: #0e0e0e;
-  position: relative;
-
-  .text {
-  font-size: 60px;
-  font-weight: 600;
-  margin-left: 24px;
-  margin-bottom: 24px;
-  text-align: left;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  color: #0e0e0e;
-  text-shadow:
-   -1px -1px 0 $primary-color,
-    1px -1px 0 $primary-color,
-    -1px 1px 0 $primary-color,
-     1px 1px 0 $primary-color;
-  }
-}
 
 .new-post-button {
   height: 48px;
@@ -322,10 +188,6 @@ a:hover, a:focus {
   }
 }
 
-.plyr {
-  max-width: calc(100% - 8px);
-  margin-bottom: 8px;
-}
 
 /** Forms **/
 
@@ -333,8 +195,8 @@ a:hover, a:focus {
   width: 480px;
   margin: 0 auto;
   margin-top: 160px;
-  background-color: #0e0e0e;
-  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+  background-color: white;
+  box-shadow: 0 2px 16px 0 rgba(0, 0, 0, 0.05);
   padding: 32px 32px 40px 32px;
   border-radius: 4px;
 }
@@ -344,7 +206,6 @@ a:hover, a:focus {
   font-weight: 500;
   text-align: center;
   margin-bottom: 48px;
-  color: white;
 }
 
 .form-control {
@@ -352,8 +213,9 @@ a:hover, a:focus {
   margin-bottom: 16px;
   border-color: $primary-color;
   color: $primary-color;
-  background-color: #0e0e0e;
+  background-color: white;
   outline:0;
+  box-shadow: 0px;
 }
 
 .form-control:focus {
@@ -365,18 +227,18 @@ a:hover, a:focus {
   height: 48px;
   background-color: $primary-color;
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-  color: #000;
+  color: white;
   font-weight: 500;
 
   &:hover {
     background-color: $primary-color-hover;
-    color: #000;
+    color: white;
     outline: 0;
   }
 
   &:focus {
     background-color: $primary-color-hover;
-    color: #000;
+    color: white;
     outline: 0;
   }
 }
@@ -387,7 +249,6 @@ a:hover, a:focus {
 
 .remember-me {
   margin: 16px 0px 16px 20px;
-  color: white;
 
   label {
     font-weight: 400;
@@ -413,29 +274,6 @@ a:hover, a:focus {
   margin-top: 16px;
 }
 
-.custom-file-upload {
-  background-color: $light-bg;
-  border-radius: 4px;
-  margin-bottom: 16px;
-  display: inline-block;
-  padding: 6px 12px;
-  cursor: pointer;
-  width: 100%;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 500;
-
-  &:hover {
-    background-color: $light-bg-hover;
-  }
-
-  input[type="file"] {
-      display: none;
-  }
-}
-
 
 /** Home Page **/
 
@@ -444,14 +282,13 @@ a:hover, a:focus {
   font-weight: 600;
   text-align: center;
   margin-bottom: 24px;
-  color: wheat;
+  color: $primary-color;
 }
 
 .home-subtitle {
   font-size: 18px;
   text-align: center;
   margin-bottom: 64px;
-  color: white;
 }
 
 .sign-up-button {
@@ -460,17 +297,17 @@ a:hover, a:focus {
   height: 48px;
   background-color: $primary-color;
   box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
-  color: #000;
+  color: white;
   font-weight: 500;
 
   &:hover {
     background-color: $primary-color-hover;
-    color: #000;
+    color: white;
   }
 
   &:focus {
     background-color: $primary-color-hover;
-    color: #000;
+    color: white;
   }
 }
 
@@ -560,22 +397,116 @@ a:hover, a:focus {
   }
 }
 
-.section-right {
-  .main-background {
+/** Shortcut Page **/
 
-  }
-  .info {
+.page-title {
+  font-size: 48px;
+  font-weight: 600;
+  text-align: left;
+}
 
-  }
-  .decor-1 {
+.category-section {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 40px;
+}
 
-  }
-  .decor-2 {
+.category-info {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
 
-  }
-  .decor-3 {
-
+  .fa-ellipsis-v {
+    font-size: 18px;
+    color: #777;
   }
 }
 
+.category-title {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: left;
+  margin-right: 16px;
+}
 
+.shortcut-box {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.shortcut-card {
+  float: left;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.shortcut-image {
+  height: 100px;
+  width: 100px;
+  border-radius: 100%;
+  background-color: $light-gray;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .fa-plus {
+    font-size: 32px;
+    color: #c5ccd2;
+  }
+}
+
+.shortcut-title-box {
+
+}
+
+.shortcut-title {
+  color: #657786;
+  text-align: center;
+}
+
+.empty-post-box {
+  width: 100%;
+  height: 320px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .text {
+  font-size: 60px;
+  font-weight: 600;
+  margin-left: 24px;
+  margin-bottom: 24px;
+  color: $light-bg;
+  text-shadow:
+   -1px -1px 0 $primary-color,
+    1px -1px 0 $primary-color,
+    -1px 1px 0 $primary-color,
+     1px 1px 0 $primary-color;
+  }
+}
+
+.category-button {
+  padding: 24px 56px;
+  border-radius: 4px;
+  height: 48px;
+  background-color: $primary-color;
+  box-shadow: 0 5px 15px 0 rgba(0,0,0,0.15);
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+
+  &:hover {
+    background-color: $primary-color-hover;
+    color: white;
+  }
+
+  &:focus {
+    background-color: $primary-color-hover;
+    color: white;
+  }
+}

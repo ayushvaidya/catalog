@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Moodboard</title>
+    <title>Shortcut</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -20,30 +20,14 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <%= link_to "MOODBOARD", root_path, class: "navbar-brand" %>
+          <%= link_to "SHORTCUT", root_path, class: "navbar-brand" %>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-            <li class="dropdown">
-
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <i class="fal fa-th-large"></i>
-                <div class="nav-text">Boards</div>
-              </a>
-
-              <ul class="dropdown-menu">
-
-                <% current_user.categories.each do |cat| %>
-                  <li>
-                    <%= link_to cat.name, posts_path(category: cat.name) %>
-                  </li>
-                <% end %>
-                <li role="separator" class="divider"></li>
-                <li>
-                  <%= link_to 'Create New Board', new_category_path %>
-                </li>
-              </ul>
+            <li class="nav-item">
+              <i class="fal fa-th-large"></i>
+              <%= link_to 'New Category', new_category_path %>
             </li>
 
             <li class="dropdown">

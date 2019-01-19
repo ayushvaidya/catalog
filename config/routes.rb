@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'posts#index'
-  resources :categories, :path => "/boards"
+  root 'categories#index'
+  resources :categories
+  resources :posts, :path => "/shortcuts"
   resources :posts do
     collection do
       patch :sort

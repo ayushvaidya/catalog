@@ -1,10 +1,12 @@
-<div class="form-container">
-  <div class="form-title">New Post</div>
+<div class="page-background">
+  <div class="form-container">
+    <div class="form-title">New Shortcut</div>
 
-  <%= render 'form', post: @post %>
+    <%= render 'form', post: @post %>
 
-  <div class="shared-links">
-    <%= link_to 'Back', posts_path, class: 'link-style' %>
+    <div class="shared-links">
+      <%= link_to 'Return home', root_path, class: 'link-style' %>
+    </div>
   </div>
 </div>
 
