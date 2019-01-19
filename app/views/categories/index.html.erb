@@ -17,7 +17,7 @@
             <div class="shortcut-box">
               <% category.posts.each do |post| %>
                 <div class="shortcut-card">
-                  <a href="http://<%= post.link %>" target="_blank">
+                  <a href="<%= post.link %>" target="_blank">
                     <div class="shortcut-image">
                       <div class="shortcut-title-image">
                         <%= post.title.first %>
