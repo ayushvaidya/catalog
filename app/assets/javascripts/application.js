@@ -12,14 +12,8 @@
 //
 //
 //= require jquery
-//= require jquery-ui/widget
-//= require jquery-ui/sortable
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require_tree .
-
-window.onload = function() {
-$('#file-upload').bind('change', function() { var fileName = ''; fileName = ('Image selected: ' +$(this).val()); $('#file-selected').html(fileName); })
-};
