@@ -104,6 +104,16 @@ $light-gray: #e6ecf0;
   background-color: #222;
 }
 
+.category-nav {
+  display: flex;
+  align-items: center;
+
+  .fa-plus {
+    font-size: 16px;
+    margin-right: 4px;
+  }
+}
+
 /** Alerts **/
 
 .alert-info {
