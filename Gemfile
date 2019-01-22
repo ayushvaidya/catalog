@@ -70,4 +70,7 @@ gem 'simple_form'
 gem 'devise'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-
+gem "aws-sdk-s3", require: false
+gem 'bcrypt'
+gem 'plyr-rails'
+gem 'dotenv-rails', groups: [:development, :test]

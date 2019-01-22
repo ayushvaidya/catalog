@@ -1,0 +1,46 @@
+<div class="page-center">
+  <div class="page-container">
+    <div class="catalog-container">
+      <div class="catalog-title"><%= @category.name %></div>
+
+
+      <% if current_user %>
+        <div class="catalog-buttons">
+
+          <%= link_to "Upload", new_post_path(@category, category: @category.id), class: "button-primary" %>
+
+          <div class="button-secondary">Share</div>
+
+          <%= link_to edit_category_path(@category), class: 'ellipsis' do %>
+            <i class="fal fa-ellipsis-v"></i>
+          <% end %>
+
+        </div>
+      <% end %>
+
+      <div class="catalog-divider"></div>
+
+      <% @category.posts.each do |post| %>
+        <div class="post-row">
+          <div class="info-box">
+            <%= post.title %>
+          </div>
+          <audio id="player" controls class="js-player" loop>
+            <source src="<%= post.file.service_url %>" type="audio/mp3">
+          </audio>
+
+          <%= link_to post.file.service_url, target: '_blank', download: '', class: 'download'  do %>
+            <i class="fal fa-arrow-to-bottom"></i>
+          <% end %>
+
+          <% if current_user %>
+            <%= link_to edit_post_path(post), class: 'ellipsis' do %>
+              <i class="fal fa-ellipsis-v"></i>
+            <% end %>
+          <% end %>
+
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

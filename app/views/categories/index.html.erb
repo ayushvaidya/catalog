@@ -1,68 +1,48 @@
 <div class="page-center">
-  <div class="page-container">
 
-    <% if user_signed_in? %>
+  <% if user_signed_in? %>
+    <div class="page-container">
 
       <% unless @categories.blank? %>
 
+        <div class="page-title">Your Catalogs</div>
+
         <% @categories.each do |category| %>
-          <div class="category-section">
-            <div class="category-info">
-              <div class="category-title"><%= category.name %></div>
-              <%= link_to edit_category_path(category) do %>
-                <i class="far fa-ellipsis-v"></i>
+
+          <div class="catalog-container-card">
+            <div class="catalog-title"><%= category.name %></div>
+            <div class="catalog-buttons">
+              <%= link_to "Upload", new_post_path(@category, category: category.id), class: "button-primary" %>
+              <%= link_to "View", category_path(category), class: "button-secondary" %>
+              <%= link_to "Share", category_path(category), class: "button-secondary ml-8" %>
+
+              <%= link_to edit_category_path(category), class: 'ellipsis' do %>
+                <i class="fal fa-ellipsis-v"></i>
               <% end %>
+
             </div>
 
-            <div class="shortcut-box">
-              <% category.posts.each do |post| %>
-                <div class="shortcut-card">
-                  <a href="<%= post.link %>" target="_blank">
-                    <div class="shortcut-image">
-                      <div class="shortcut-title-image">
-                        <%= post.title.first %>
-                      </div>
-                    </div>
-                  </a>
-
-                  <%= link_to edit_post_path(post), class: 'shortcut-title' do %>
-                    <%= post.title %>
-                  <% end %>
-                </div>
-
-              <% end %>
-
-              <%= link_to new_post_path(@category, category: category.id) do %>
-                <div class="shortcut-card">
-                  <div class="shortcut-image">
-                    <i class="fal fa-plus"></i>
-                  </div>
-                  <div class="shortcut-title">
-                    New Shortcut
-                  </div>
-                </div>
-              <% end %>
-            </div>
           </div>
         <% end %>
+
+        <%= link_to "Create new catalog", new_category_path, class: "catalog-container-card new-catalog-card" %>
 
       <% else %>
 
           <div class="empty-post-box">
             <div class="text">
-              You have no shortcut categories
+              You have no catalogs
               <br>
               Let’s create one
               <br>
               <%= link_to "Create Category", new_category_path, class: "category-button" %>
             </div>
           </div>
+
       <% end %>
+    </div>
+  <% else %>
+    <%= render 'homepage' %>
+  <% end %>
 
-    <% else %>
-
-      <%= render 'homepage' %>
-    <% end %>
-
-  </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="page-background">
   <div class="form-container">
-    <div class="form-title">Edit Shortcut</div>
+    <div class="form-title">Edit</div>
 
     <%= simple_form_for @post, html: { multipart: true } do |form| %>
       <% if @post.errors.any? %>
@@ -15,17 +15,15 @@
         </div>
       <% end %>
 
+      <label class="custom-file-upload" id="image-upload">
+        <span id="file-selected">Select MP3 to upload</span>
+        <%= form.file_field :file, class: "form-control", id: "file-upload" %>
+      </label>
+
       <div class="field">
         <%= form.text_field :title,
           class: "form-control",
-          placeholder: "Shortcut title",
-          required: true %>
-      </div>
-
-      <div class="field">
-        <%= form.text_field :link,
-          class: "form-control",
-          placeholder: "www.shortcut.com",
+          placeholder: "Title",
           required: true %>
       </div>
 
@@ -35,7 +33,7 @@
     <% end %>
 
     <div class="shared-links">
-      <%= link_to 'Delete shortcut', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-style' %>
+      <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'link-style' %>
       <%= link_to 'Return home', root_path, class: 'link-style' %>
 
     </div>

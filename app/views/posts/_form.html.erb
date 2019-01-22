@@ -16,24 +16,20 @@
     <%= form.hidden_field :category_id, value: params[:category] %>
   </div>
 
-
+  <label class="custom-file-upload" id="image-upload">
+    <span id="file-selected">Select MP3 to upload</span>
+    <%= form.file_field :file, class: "form-control", id: "file-upload" %>
+  </label>
 
   <div class="field">
     <%= form.text_field :title,
       class: "form-control",
-      placeholder: "Shortcut title",
-      required: true %>
-  </div>
-
-  <div class="field">
-    <%= form.text_field :link,
-      class: "form-control",
-      placeholder: "https://www.shortcut.com",
+      placeholder: "Title",
       required: true %>
   </div>
 
   <div class="actions">
-    <%= form.button :submit, "Add shortcut", class: "form-button" %>
+    <%= form.button :submit, "Upload", class: "form-button" %>
   </div>
 <% end %>
 
