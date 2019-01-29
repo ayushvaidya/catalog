@@ -1,0 +1,48 @@
+<div class="page-center">
+
+  <% if user_signed_in? %>
+    <div class="page-container">
+
+      <% unless @categories.blank? %>
+
+        <div class="page-title">Your Catalogs</div>
+
+        <% @categories.each do |category| %>
+
+          <div class="catalog-container-card">
+            <div class="catalog-title"><%= category.name %></div>
+            <div class="catalog-buttons">
+              <%= link_to "Upload", new_post_path(@category, category: category.id), class: "button-primary" %>
+              <%= link_to "View", category_path(category), class: "button-secondary" %>
+              <!--<%= link_to "Share", category_path(category), class: "button-secondary ml-8" %>-->
+
+              <%= link_to edit_category_path(category), class: 'ellipsis' do %>
+                <i class="fal fa-ellipsis-v"></i>
+              <% end %>
+
+            </div>
+
+          </div>
+        <% end %>
+
+        <%= link_to "Create new catalog", new_category_path, class: "catalog-container-card new-catalog-card" %>
+
+      <% else %>
+
+          <div class="empty-post-box">
+            <div class="text">
+              You have no catalogs
+              <br>
+              Let’s create one
+              <br>
+              <%= link_to "Create Category", new_category_path, class: "category-button" %>
+            </div>
+          </div>
+
+      <% end %>
+    </div>
+  <% else %>
+    <%= render 'homepage' %>
+  <% end %>
+
+</div>

@@ -1,7 +1,9 @@
 class Post < ApplicationRecord
   belongs_to :category
+  acts_as_list scope: :category
   belongs_to :user
   validates :category, :presence => true
+
 
   has_one_attached :file
 

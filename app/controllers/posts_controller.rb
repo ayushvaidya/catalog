@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+
   end
 
   def sort
@@ -29,8 +30,6 @@ class PostsController < ApplicationController
 
     head :ok
   end
-
-
 
 
   # GET /posts/new

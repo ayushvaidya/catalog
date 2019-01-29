@@ -19,28 +19,29 @@
       <% end %>
 
       <div class="catalog-divider"></div>
+      <div id="posts" data-url="<%= sort_posts_path %>">
+        <% @category.posts.order(:position).each do |post| %>
+          <div class="post-row" id="<%= dom_id(post) %>">
+            <div class="info-box">
+              <%= post.title %>
+            </div>
+            <audio id="player" controls class="js-player" loop>
+              <source src="<%= post.file.service_url %>" type="audio/mp3">
+            </audio>
 
-      <% @category.posts.each do |post| %>
-        <div class="post-row">
-          <div class="info-box">
-            <%= post.title %>
-          </div>
-          <audio id="player" controls class="js-player" loop>
-            <source src="<%= post.file.service_url %>" type="audio/mp3">
-          </audio>
-
-          <%= link_to post.file.service_url, target: '_blank', download: '', class: 'download'  do %>
-            <i class="fal fa-arrow-to-bottom"></i>
-          <% end %>
-
-          <% if current_user %>
-            <%= link_to edit_post_path(post), class: 'ellipsis' do %>
-              <i class="fal fa-ellipsis-v"></i>
+            <%= link_to post.file.service_url, target: '_blank', download: '', class: 'download'  do %>
+              <i class="fal fa-arrow-to-bottom"></i>
             <% end %>
-          <% end %>
 
-        </div>
-      <% end %>
+            <% if current_user %>
+              <%= link_to edit_post_path(post), class: 'ellipsis' do %>
+                <i class="fal fa-ellipsis-v"></i>
+              <% end %>
+            <% end %>
+
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

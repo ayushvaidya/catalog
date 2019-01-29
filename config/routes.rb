@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'categories#index'
   resources :categories, param: :slug
-  resources :posts, :path => "/shortcuts"
+  resources :posts, :path => "/tracks"
   resources :posts do
     collection do
       patch :sort

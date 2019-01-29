@@ -74,3 +74,5 @@ gem "aws-sdk-s3", require: false
 gem 'bcrypt'
 gem 'plyr-rails'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'jquery-ui-rails', '~> 5.0', '>= 5.0.5'
+gem 'acts_as_list'
