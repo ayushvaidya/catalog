@@ -14,8 +14,8 @@
 //= require jquery
 //= require jquery-ui/widget
 //= require jquery-ui/sortable
-//= require rails_ujs
 //= require bootstrap-sprockets
+//= require rails-ujs
 //= require activestorage
 //= require turbolinks
 //= require plyr
