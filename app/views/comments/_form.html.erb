@@ -1,11 +1,14 @@
-
 <%= simple_form_for([@post, @post.comments.build]) do |f| %>
 
-  <div class="form-inputs">
-    <%= f.input :body %>
+
+  <div class="field">
+    <%= f.text_field :body,
+      class: "form-control form-control-comment",
+      placeholder: "Comment",
+      required: true %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="actions">
+    <%= f.button :submit, "Submit", class: "form-button form-button-comment" %>
   </div>
 <% end %>
