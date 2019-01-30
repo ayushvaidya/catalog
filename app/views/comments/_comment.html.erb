@@ -1,0 +1,10 @@
+<div class="comment-post">
+  <div class="comment-avatar"></div>
+  <div class="comment-content">
+    <div class="comment-info">
+      <div class="comment-user"><%= comment.user.email %></div>
+      <div class="comment-time"><%= comment.created_at.strftime("%I:%M %p") %></div>
+    </div>
+    <div class="comment-body"><%= comment.body %></div>
+  </div>
+</div>

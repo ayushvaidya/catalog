@@ -1,0 +1,51 @@
+<div class="page-center">
+  <div class="page-container">
+    <div class="catalog-container">
+      <!--<div class="catalog-title"><%= @post.user.id %></div>-->
+      <div class="page-title"><%= @post.title %></div>
+
+      <% if current_user %>
+        <div class="catalog-buttons">
+        </div>
+      <% end %>
+
+      <div id="posts" data-url="<%= sort_posts_path %>">
+
+          <div class="post-row" id="<%= dom_id(@post) %>">
+            <audio id="player" controls class="js-player" loop>
+              <source src="<%= @post.file.service_url %>" type="audio/mp3">
+            </audio>
+
+            <%= link_to @post.file.service_url, target: '_blank', download: '', class: 'download'  do %>
+              <i class="fal fa-arrow-to-bottom"></i>
+            <% end %>
+
+            <% if current_user %>
+              <%= link_to edit_post_path(@post), class: 'ellipsis' do %>
+                <i class="fal fa-ellipsis-v"></i>
+              <% end %>
+            <% end %>
+
+          </div>
+
+      </div>
+
+      <div class="catalog-divider"></div>
+
+      <div class="comment-input-box">
+        <div class="comment-avatar"></div>
+        <div class="comment-input">
+
+          <%= render 'comments/form' %>
+
+        </div>
+      </div>
+
+      <div id="comment_pane">
+        <% @post.comments.order('created_at DESC').each do |comment| %>
+          <%= render 'comments/comment', comment: comment %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,6 +12,8 @@ class Post < ApplicationRecord
 
   validate :correct_document_mime_type
 
+  has_many :comments
+
   private
 
   def correct_document_mime_type

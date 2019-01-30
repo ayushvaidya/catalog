@@ -23,7 +23,9 @@
         <% @category.posts.order(:position).each do |post| %>
           <div class="post-row" id="<%= dom_id(post) %>">
             <div class="info-box">
-              <%= post.title %>
+              <%= link_to post_path(post) do %>
+                <%= post.title %>
+              <% end %>
             </div>
             <audio id="player" controls class="js-player" loop>
               <source src="<%= post.file.service_url %>" type="audio/mp3">
