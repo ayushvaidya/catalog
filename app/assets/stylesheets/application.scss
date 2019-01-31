@@ -709,7 +709,12 @@ a:hover, a:focus {
 .comment-avatar {
   height: 56px;
   width: 56px;
-  background-color: $primary-color;
+  background-color: $dark-gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: $gray-text;
   border-radius: 4px;
 }
 

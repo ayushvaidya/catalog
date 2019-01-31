@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :categories, param: :slug
 
-  resources :posts, :path => "/tracks"
+  resources :posts, param: :slug, :path => "/tracks"
 
   resources :posts do
     resources :comments

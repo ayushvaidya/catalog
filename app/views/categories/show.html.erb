@@ -23,7 +23,7 @@
         <% @category.posts.order(:position).each do |post| %>
           <div class="post-row" id="<%= dom_id(post) %>">
             <div class="info-box">
-              <%= link_to post_path(post), class: 'post-title' do %>
+              <%= link_to post_path(post, post_id: post.id), class: 'post-title' do %>
                 <%= post.title %>
               <% end %>
             </div>

@@ -7,17 +7,13 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.save
 
-    if @comment.save
       redirect_back(fallback_location: root_path)
-    else
-      render 'new'
-    end
   end
 
   private
 
     def set_post
-      @post = Post.find(params[:post_id])
+      @post = Post.find_by_slug(params[:post_id])
     end
 
 end

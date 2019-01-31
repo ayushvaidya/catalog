@@ -1,7 +1,6 @@
 <div class="page-center">
   <div class="page-container">
     <div class="catalog-container">
-      <!--<div class="catalog-title"><%= @post.user.id %></div>-->
       <div class="page-title"><%= @post.title %></div>
 
       <% if current_user %>
@@ -33,7 +32,7 @@
       <div class="catalog-divider"></div>
 
       <div class="comment-input-box">
-        <div class="comment-avatar"></div>
+        <div class="comment-avatar"><%= current_user.email.first %></div>
         <div class="comment-input">
 
           <%= render 'comments/form' %>

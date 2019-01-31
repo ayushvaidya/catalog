@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field">
+    <%= form.hidden_field :post_id, value: params[:post] %>
+  </div>
+
+  <div class="field">
     <%= form.text_field :name,
       class: "form-control",
       placeholder: "Category name",
