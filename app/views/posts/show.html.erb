@@ -31,14 +31,16 @@
 
       <div class="catalog-divider"></div>
 
-      <div class="comment-input-box">
-        <div class="comment-avatar"><%= current_user.email.first %></div>
-        <div class="comment-input">
+      <% if current_user %>
+        <div class="comment-input-box">
+          <div class="comment-avatar"><%= current_user.email.first %></div>
+          <div class="comment-input">
 
-          <%= render 'comments/form' %>
+            <%= render 'comments/form' %>
 
+          </div>
         </div>
-      </div>
+      <% end %>
 
       <div id="comment_pane">
         <% @post.comments.order('created_at DESC').each do |comment| %>
