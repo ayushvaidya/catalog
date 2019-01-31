@@ -1,4 +1,4 @@
-// This is a manifest file that'll be compiled into application.js, which will include all the files
+  // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
 // Any JavaScript/Coffee file within this directory, lib/assets/javascripts, or any plugin's
@@ -23,19 +23,19 @@
 
 
 $(document).on("turbolinks:load", function() {
-  const players = Plyr.setup('.js-player');
-  $('#file-upload').bind('change', function() { var fileName = ''; fileName = ('Image selected: ' +$(this).val()); $('#file-selected').html(fileName); });
+    const players = Array.from(document.querySelectorAll('.js-player')).map(p => new Plyr(p));
+    $('#file-upload').bind('change', function() { var fileName = ''; fileName = ('Image selected: ' +$(this).val()); $('#file-selected').html(fileName); });
 });
 
 window.onload = function() {
-  document.addEventListener("play", function(event) {
-      audio_elements = document.body.getElementsByTagName("audio")
-      for(i=0; i < audio_elements.length; i++) {
-          audio_element = audio_elements[i];
-          if (audio_element !== event.target.firstElementChild) {
-              audio_element.pause();
-          }
-      }
-  }, false);
+    document.addEventListener("play", function(event) {
+        audio_elements = document.body.getElementsByTagName("audio")
+        for(i=0; i < audio_elements.length; i++) {
+            audio_element = audio_elements[i];
+            if (audio_element !== event.target.firstElementChild) {
+                audio_element.pause();
+            }
+        }
+    }, false);
 
-};
+  };
